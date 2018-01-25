@@ -1,13 +1,29 @@
 {
+  "version": "0.0.1",
   "name": "create-next-example-app",
   "scripts": {
+    "precommit": "lint-staged",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prettier": "npm run format:source",
+    "format:source": "prettier --config .prettierrc --write {*.js,pages/**/*.js,components/**/*.js}"
   },
   "dependencies": {
     "next": "4.2.3",
     "react": "16.2.0",
     "react-dom": "16.2.0"
+  },
+  "lint-staged": {
+    "{*.js,pages/**/*.js,components/**/*.js}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.1",
+    "prettier": "^1.10.2"
   }
 }

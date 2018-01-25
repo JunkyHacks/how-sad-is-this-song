@@ -9,7 +9,9 @@ export default () => (
 
     <div className="hero">
       <h1 className="title">Welcome to Next!</h1>
-      <p className="description">To get started, edit <code>pages/index.js</code> and save to reload.</p>
+      <p className="description">
+        To get started, edit <code>pages/index.js</code> and save to reload.
+      </p>
 
       <div className="row">
         <Link href="https://github.com/zeit/next.js#getting-started">
@@ -47,7 +49,8 @@ export default () => (
         line-height: 1.15;
         font-size: 48px;
       }
-      .title, .description {
+      .title,
+      .description {
         text-align: center;
       }
       .row {
@@ -63,7 +66,7 @@ export default () => (
         text-align: left;
         text-decoration: none;
         color: #434343;
-        border: 1px solid #9B9B9B;
+        border: 1px solid #9b9b9b;
       }
       .card:hover {
         border-color: #067df7;
