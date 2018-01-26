@@ -24,6 +24,17 @@ const Head = props => (
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <link rel="stylesheet" href="http://ellekasai.github.io/twemoji-awesome/twemoji-awesome.css" />
+    <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f602.svg" as="image" />
+    <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f606.svg" as="image" />
+    <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f604.svg" as="image" />
+    <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f610.svg" as="image" />
+    <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f615.svg" as="image" />
+    <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f626.svg" as="image" />
+    <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f61f.svg" as="image" />
+    <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f623.svg" as="image" />
+    <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f622.svg" as="image" />
+    <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f62d.svg" as="image" />
   </NextHead>
 )
 

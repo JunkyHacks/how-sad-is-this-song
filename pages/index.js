@@ -1,15 +1,24 @@
 import Link from 'next/link'
 import Head from '../components/head'
+import SadnessMeter from '../components/SadnessMeter'
 
 export default () => (
-  <div>
+  <div className="home">
     <Head title="Home" />
-
-    <h1>Hello World!</h1>
-
+    <SadnessMeter amount={0.1} />
+    <SadnessMeter amount={0.2} />
+    <SadnessMeter amount={0.3} />
+    <SadnessMeter amount={0.4} />
+    <SadnessMeter amount={0.5} />
+    <SadnessMeter amount={0.6} />
+    <SadnessMeter amount={0.7} />
+    <SadnessMeter amount={0.8} />
+    <SadnessMeter amount={0.9} />
+    <SadnessMeter amount={1} />
     <style jsx>{`
-      h1 {
-        color: red;
+      .home {
+        display: flex;
+        flex-wrap: wrap;
       }
     `}</style>
   </div>
