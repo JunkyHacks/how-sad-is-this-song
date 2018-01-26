@@ -2,6 +2,10 @@ import Link from 'next/link'
 import Head from '../components/head'
 import SadnessMeter from '../components/SadnessMeter'
 
+import { tracks } from '../lib/api'
+
+tracks('4Z8W4fKeB5YxbusRsdQVPb').then(res => console.log(res))
+
 export default () => (
   <div className="home">
     <Head title="Home" />
