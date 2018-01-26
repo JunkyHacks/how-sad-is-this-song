@@ -11,7 +11,6 @@ const emojis = [
   'persevere',
   'cry',
   'sob',
-  'sob',
 ]
 
 class SadnessMeter extends React.Component {
@@ -26,13 +25,13 @@ class SadnessMeter extends React.Component {
     this.interval = setInterval(() => {
       this.state.percentage === this.props.amount * 100
         ? clearInterval(this.interval)
-        : this.setState({ percentage: this.state.percentage + 1 })
+        : this.setState({ percentage: this.state.percentage + 5 })
     }, 100)
   }
 
   render() {
     const { percentage } = this.state
-    const emoji = emojis[Math.floor(this.state.percentage / 10)]
+    const emoji = emojis[Math.floor(this.state.percentage / 10) - 1]
 
     return (
       <figure className="sadness-meter">
@@ -56,6 +55,7 @@ class SadnessMeter extends React.Component {
             right: 50%;
             background-size: cover;
             transform: translate(50%, -50%);
+            filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
           }
 
           .sadness-meter svg {
