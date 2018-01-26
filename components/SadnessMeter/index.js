@@ -24,8 +24,8 @@ class SadnessMeter extends React.Component {
     this.interval = setInterval(() => {
       this.state.percentage === this.props.amount * 100
         ? clearInterval(this.interval)
-        : this.setState({ percentage: this.state.percentage + 1 })
-    }, 20)
+        : this.setState({ percentage: this.state.percentage + 5 })
+    }, 50)
   }
 
   render() {
@@ -36,9 +36,6 @@ class SadnessMeter extends React.Component {
       <figure className="sadness-meter">
         <EmojiMeter emoji={emoji} percentage={percentage} />
         <figcaption>{percentage} %</figcaption>
-        <style jsx>{`
-
-        `}</style>
       </figure>
     )
   }
