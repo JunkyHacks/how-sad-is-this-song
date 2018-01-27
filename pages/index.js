@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Head from '../components/head'
 import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
-import { search } from '../lib/api'
 
 export default () => (
   <div className="home">
