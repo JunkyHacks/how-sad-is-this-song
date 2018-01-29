@@ -2,13 +2,7 @@ import React from 'react'
 
 const SearchBar = ({ onChange, value }) => (
   <form className="search-bar">
-    <input
-      className="search-bar__input"
-      type="search"
-      onChange={onChange}
-      value={value}
-      autoFocus
-    />
+    <input className="search-bar__input" type="search" onChange={onChange} value={value} autoFocus />
     <style jsx>{`
       .search-bar__input {
         font-size: 24px;
