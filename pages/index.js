@@ -1,16 +1,14 @@
 import Link from 'next/link'
 
 import Head from '../components/head'
+import Title from '../components/Title'
 import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
 
 export default () => (
   <div className="home">
     <Head title="Home" />
-    <h1 className="title">
-      <sup style={{ fontWeight: 'normal' }}>😢</sup>
-      How sad is this song!?
-    </h1>
+    <Title text="How sad is this song?" angle={180} />
     <SearchBar />
     <style jsx global>{`
       * {
@@ -36,11 +34,6 @@ export default () => (
         justify-content: center;
         height: 100vh;
         box-sizing: border-box;
-      }
-
-      .title {
-        font-size: 64px;
-        margin: 32px 0;
       }
     `}</style>
   </div>
