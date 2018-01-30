@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import Head from '../components/head'
-import Title from '../components/Title'
+import Logo from '../components/Logo'
 import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
 import SearchResults from '../components/SearchResults'
@@ -10,7 +10,7 @@ import { token } from '../lib/api'
 const Page = ({ content }) => (
   <div className="home">
     <Head title="Home" />
-    <Title text="How sad is this song?-How sad is this song?-" angle={360} />
+    <Logo text="How sad is this song?-How sad is this song?-" angle={360} />
     {JSON.stringify(content)}
     <SearchBar />
     <SearchResults
@@ -50,11 +50,11 @@ const Page = ({ content }) => (
     `}</style>
   </div>
 )
-
-Page.getInitialProps = async () => {
-  const access_token = await token()
-  const content = await access_token.json()
-  return { content }
-}
+//
+// Page.getInitialProps = async () => {
+//   const access_token = await token()
+//   const content = await access_token.json()
+//   return { content }
+// }
 
 export default Page

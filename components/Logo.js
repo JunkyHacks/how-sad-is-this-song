@@ -1,46 +1,42 @@
 import React from 'react'
 
-const Title = ({ text, angle = 180 }) => {
+const Logo = ({ text, angle = 180 }) => {
   const rotation = angle / text.length
 
   return (
-    <h1 className="title">
+    <h1 className="logo">
       {text.split('').map((char, i) => (
-        <span
-          key={i}
-          className="title__char"
-          style={{ transform: `translate(50%, -50%) rotate(${i * rotation - 90}deg)` }}
-        >
+        <span key={i} className="logo__char" style={{ transform: `translateX(-50%) rotate(${i * rotation - 90}deg)` }}>
           {char}
         </span>
       ))}
-      <i className="title__icon">😢</i>
+      <i className="logo__icon">😢</i>
       <style jsx>{`
-        .title {
+        .logo {
           font-family: monospace;
           position: relative;
           font-weight: normal;
           transform-origin: left;
           height: 350px;
           width: 350px;
-          margin-bottom: 32px;
+          margin: 32px 0;
         }
 
-        .title__icon {
+        .logo__icon {
           position: absolute;
-          right: 53%;
+          right: 50%;
           font-size: 295px;
           transform: translate(50%, -50%);
           top: 45%;
           font-style: normal;
         }
 
-        .title__char {
+        .logo__char {
           height: 175px;
           position: absolute;
           width: 20px;
-          top: 0;
-          right: 50%;
+          top: 0%;
+          left: 50%;
           transform-origin: bottom center;
         }
       `}</style>
@@ -48,4 +44,4 @@ const Title = ({ text, angle = 180 }) => {
   )
 }
 
-export default Title
+export default Logo

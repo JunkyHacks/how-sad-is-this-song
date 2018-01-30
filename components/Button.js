@@ -31,19 +31,16 @@ const Button = ({ children }) => (
         left: 0;
       }
 
-      .eff {
-        transition: transform ease .1s;
-        transform: translate(4px, 4px);
-      }
-
-      button:hover .eff {
-        transform: translate(2px, 2px);
-      }
-
       .label {
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: transform ease .1s;
+        transform: translate(-4px, -4px);
+      }
+
+      button:hover .label {
+        transform: translate(-2px, -2px);
       }
     `}</style>
   </button>
