@@ -27,7 +27,7 @@ const Title = ({ text, angle = 180 }) => {
           right: 50%;
           font-size: 350px;
           transform: translate(50%, -50%);
-          top: 86%;
+          top: 100%;
         }
 
         .title__char {
