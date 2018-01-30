@@ -15,16 +15,14 @@
   "scripts": {
     "test": "jest",
     "precommit": "lint-staged",
-    "dev": "node server.js",
+    "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "next start",
     "prettier": "npm run format:source",
     "format:source": "prettier --config .prettierrc --write {*.js,pages/**/*.js,components/**/*.js,lib/**/*.js}"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
-    "express": "^4.16.2",
     "isomorphic-unfetch": "^2.0.0",
     "next": "4.2.3",
     "react": "16.2.0",
