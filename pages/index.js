@@ -4,14 +4,23 @@ import Head from '../components/head'
 import Title from '../components/Title'
 import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
+import SearchResults from '../components/SearchResults'
 import { token } from '../lib/api'
 
 const Page = ({ content }) => (
   <div className="home">
     <Head title="Home" />
+    <Title text="How sad is this song?-How sad is this song?-" angle={360} />
     {JSON.stringify(content)}
-    <Title text="How sad is this song?" angle={180} />
     <SearchBar />
+    <SearchResults
+      results={[
+        { name: 'Creep', artist: 'Radiohead' },
+        { name: 'Creep', artist: 'Radiohead' },
+        { name: 'Creep', artist: 'Radiohead' },
+        { name: 'Creep', artist: 'Radiohead' },
+      ]}
+    />
     <style jsx global>{`
       * {
         padding: 0;
@@ -25,7 +34,7 @@ const Page = ({ content }) => (
       body {
         font-size: 1rem;
         font-family: 'Noto Sans', sans-serif;
-        color: #041030;
+        color: #222;
       }
 
       .home {
@@ -34,8 +43,9 @@ const Page = ({ content }) => (
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100vh;
         box-sizing: border-box;
+        max-width: 600px;
+        margin: auto;
       }
     `}</style>
   </div>
