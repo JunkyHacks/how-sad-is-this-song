@@ -1,7 +1,5 @@
 require('dotenv').config()
 
-const { createServer } = require('http')
-const { parse } = require('url')
 const next = require('next')
 const conf = require('./next.config.js')
 const fetch = require('isomorphic-unfetch')
@@ -10,7 +8,7 @@ const express = require('express')
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
+const app = next({ dev, conf })
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
