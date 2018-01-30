@@ -6,7 +6,11 @@ const Title = ({ text, angle = 180 }) => {
   return (
     <h1 className="title">
       {text.split('').map((char, i) => (
-        <span className="title__char" style={{ transform: `translate(50%, -50%) rotate(${i * rotation - 90}deg)` }}>
+        <span
+          key={i}
+          className="title__char"
+          style={{ transform: `translate(50%, -50%) rotate(${i * rotation - 90}deg)` }}
+        >
           {char}
         </span>
       ))}
