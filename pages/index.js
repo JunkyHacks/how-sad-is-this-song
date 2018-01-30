@@ -5,11 +5,13 @@ import Title from '../components/Title'
 import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
 import SearchResults from '../components/SearchResults'
+import { token } from '../lib/api'
 
-export default () => (
+const Page = ({ content }) => (
   <div className="home">
     <Head title="Home" />
     <Title text="How sad is this song?-How sad is this song?-" angle={360} />
+    {JSON.stringify(content)}
     <SearchBar />
     <SearchResults
       results={[
@@ -48,3 +50,11 @@ export default () => (
     `}</style>
   </div>
 )
+
+Page.getInitialProps = async () => {
+  const access_token = await token()
+  const content = await access_token.json()
+  return { content }
+}
+
+export default Page
