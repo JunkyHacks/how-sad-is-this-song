@@ -5,19 +5,39 @@ const { parse } = require('url')
 const next = require('next')
 const conf = require('./next.config.js')
 const fetch = require('isomorphic-unfetch')
+const bodyParser = require('body-parser')
+const express = require('express')
 
+const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
-  createServer((req, res) => {
-    const parsedUrl = parse(req.url, true)
-    const { pathname, query } = parsedUrl
+  const server = express()
+  server.use(bodyParser.json())
+  server.use(bodyParser.urlencoded({ extended: true }))
 
-    handle(req, res, parsedUrl)
-  }).listen(3000, err => {
+  server.get('/token', (req, res) =>
+    fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: process.env.SPOTIFY_OAUTH_TOKEN,
+      },
+      body: 'grant_type=client_credentials',
+    })
+      .then(ret => ret.json())
+      .then(fin => res.send(fin)),
+  )
+
+  server.get('*', (req, res) => {
+    return handle(req, res)
+  })
+
+  server.listen(port, err => {
     if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    console.log(`> Ready on http://localhost:${port}`)
   })
 })
