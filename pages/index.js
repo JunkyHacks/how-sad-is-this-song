@@ -4,10 +4,12 @@ import Head from '../components/head'
 import Title from '../components/Title'
 import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
+import { token } from '../lib/api'
 
-export default () => (
+const Page = ({ content }) => (
   <div className="home">
     <Head title="Home" />
+    {JSON.stringify(content)}
     <Title text="How sad is this song?" angle={180} />
     <SearchBar />
     <style jsx global>{`
@@ -38,3 +40,11 @@ export default () => (
     `}</style>
   </div>
 )
+
+Page.getInitialProps = async () => {
+  const access_token = await token()
+  const content = await access_token.json()
+  return { content }
+}
+
+export default Page
