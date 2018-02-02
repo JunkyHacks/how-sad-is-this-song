@@ -2,7 +2,7 @@ import React from 'react'
 
 const EmojiMeter = ({ percentage, emoji }) => (
   <div className="emoji-meter">
-    <i className={`emoji-meter__emoji twa twa-${emoji}`} />
+    <i className="emoji-meter__emoji">{emoji}</i>
     <svg viewBox="0 0 32 32">
       <circle r="16" cx="16" cy="16" strokeDasharray={`${100 - percentage} 100`} />
     </svg>
@@ -10,18 +10,30 @@ const EmojiMeter = ({ percentage, emoji }) => (
       .emoji-meter {
         position: relative;
         width: 100px;
+        height: 100px;
       }
 
-      .emoji-meter__emoji {
-        z-index: 1;
+      .emoji-meter:after {
+        content: '';
         position: absolute;
         width: 70px;
         height: 70px;
+        background: #eeeeee;
+        display: block;
         top: 50%;
         right: 50%;
-        background-size: cover;
+        border-radius: 50%;
         transform: translate(50%, -50%);
-        filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+      }
+
+      .emoji-meter__emoji {
+        font-style: normal;
+        z-index: 1;
+        font-size: 85px;
+        position: absolute;
+        top: 42%;
+        right: 50%;
+        transform: translate(50%, -50%);
       }
 
       .emoji-meter svg {

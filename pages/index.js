@@ -12,6 +12,7 @@ const Page = ({ content }) => (
     <Head title="Home" />
     <Logo text="How sad is this song?-How sad is this song?-" angle={360} />
     {JSON.stringify(content)}
+    <SadnessMeter amount={1} />
     <SearchBar />
     <SearchResults
       results={[
@@ -51,13 +52,13 @@ const Page = ({ content }) => (
   </div>
 )
 
-Page.getInitialProps = async () => {
-  try {
-    const accessToken = await token()
-    return await accessToken.json()
-  } catch (e) {
-    return e
-  }
-}
+// Page.getInitialProps = async () => {
+//   try {
+//     const accessToken = await token()
+//     return await accessToken.json()
+//   } catch (e) {
+//     return e
+//   }
+// }
 
 export default Page

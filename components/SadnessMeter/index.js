@@ -7,7 +7,7 @@ class SadnessMeter extends React.Component {
     percentage: 0,
   }
 
-  emojis = ['joy', 'laughing', 'smile', 'neutral-face', 'confused', 'frowning', 'worried', 'persevere', 'cry', 'sob']
+  emojis = ['😂', '😀', '☺', '😐', '😕', '😟', '☹', '😣', '😢', '😭']
 
   componentDidMount() {
     this.interval = setInterval(() => {
