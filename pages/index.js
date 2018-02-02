@@ -50,11 +50,14 @@ const Page = ({ content }) => (
     `}</style>
   </div>
 )
-//
-// Page.getInitialProps = async () => {
-//   const access_token = await token()
-//   const content = await access_token.json()
-//   return { content }
-// }
+
+Page.getInitialProps = async () => {
+  try {
+    const accessToken = await token()
+    await accessToken.json()
+  } catch (e) {
+    return e
+  }
+}
 
 export default Page
