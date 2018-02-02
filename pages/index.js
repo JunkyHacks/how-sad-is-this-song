@@ -54,7 +54,7 @@ const Page = ({ content }) => (
 Page.getInitialProps = async () => {
   try {
     const accessToken = await token()
-    await accessToken.json()
+    return await accessToken.json()
   } catch (e) {
     return e
   }
