@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
-import Head from '../components/head'
+import Head from '../components/Head'
+import Container from '../components/Container'
 import Logo from '../components/Logo'
 import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
@@ -8,20 +9,22 @@ import SearchResults from '../components/SearchResults'
 import { token } from '../lib/api'
 
 const Page = ({ content }) => (
-  <div className="home">
+  <div>
     <Head title="Home" />
-    <Logo text="How sad is this song?-How sad is this song?-" angle={360} />
-    {JSON.stringify(content)}
-    <SadnessMeter amount={1} />
-    <SearchBar />
-    <SearchResults
-      results={[
-        { name: 'Creep', artist: 'Radiohead' },
-        { name: 'Creep', artist: 'Radiohead' },
-        { name: 'Creep', artist: 'Radiohead' },
-        { name: 'Creep', artist: 'Radiohead' },
-      ]}
-    />
+    <Container>
+      <Logo text="How sad is this song?-How sad is this song?-" angle={360} />
+      {JSON.stringify(content)}
+      <SadnessMeter amount={1} />
+      <SearchBar />
+      <SearchResults
+        results={[
+          { name: 'Creep', artist: 'Radiohead' },
+          { name: 'Creep', artist: 'Radiohead' },
+          { name: 'Creep', artist: 'Radiohead' },
+          { name: 'Creep', artist: 'Radiohead' },
+        ]}
+      />
+    </Container>
     <style jsx global>{`
       * {
         padding: 0;
@@ -37,28 +40,17 @@ const Page = ({ content }) => (
         font-family: 'Noto Sans', sans-serif;
         color: #222;
       }
-
-      .home {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-        max-width: 600px;
-        margin: auto;
-      }
     `}</style>
   </div>
 )
 
-// Page.getInitialProps = async () => {
-//   try {
-//     const accessToken = await token()
-//     return await accessToken.json()
-//   } catch (e) {
-//     return e
-//   }
-// }
+Page.getInitialProps = async () => {
+  try {
+    const accessToken = await token()
+    return await accessToken.json()
+  } catch (e) {
+    return e
+  }
+}
 
 export default Page
