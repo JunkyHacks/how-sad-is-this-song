@@ -9,7 +9,7 @@ import SearchBar from '../components/SearchBar'
 import SearchResults from '../components/SearchResults'
 
 import { token, search } from '../lib/api'
-import debounce from '../lib/utils/debounce'
+import debounce from '../lib/utils'
 
 const normalizeResult = res =>
   res.tracks.items.map(({ artists, album, name }) => ({
