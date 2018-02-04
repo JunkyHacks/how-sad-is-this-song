@@ -8,7 +8,7 @@ import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
 import SearchResults from '../components/SearchResults'
 
-import { token, search, songSentiment } from '../lib/api'
+import { token, search } from '../lib/api'
 import { debounce } from '../lib/utils'
 
 const normalizeResult = res =>
