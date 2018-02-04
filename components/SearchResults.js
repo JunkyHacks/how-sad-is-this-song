@@ -1,17 +1,22 @@
 import React from 'react'
+import Link from 'next/link'
 
 import Button from './Button'
 
 const SearchResults = ({ results }) => (
   <ul>
     {results.map(result => (
-      <li>
+      <li key={result.trackId}>
         <p>
           <strong>{result.name}</strong>
           <br />
           <small>{result.artist}</small>
         </p>
-        <Button>Go →</Button>
+        <Link
+          href={`/?artist=${result.artist}&song=${result.name}&duration=${results.duration}&trackId=${results.trackId}`}
+        >
+          <Button>Go →</Button>
+        </Link>
       </li>
     ))}
     <style jsx>{`

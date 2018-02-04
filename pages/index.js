@@ -8,12 +8,14 @@ import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
 import SearchResults from '../components/SearchResults'
 
-import { token, search, lyricSentiment } from '../lib/api'
+import { token, search, songSentiment } from '../lib/api'
 import { debounce } from '../lib/utils'
 
 const normalizeResult = res =>
-  res.tracks.items.map(({ artists, album, name }) => ({
+  res.tracks.items.map(({ artists, album, name, duration_ms, id }) => ({
     name,
+    trackId: id,
+    duration: duration_ms,
     artist: artists[0].name,
     album: album.name,
   }))
@@ -67,8 +69,9 @@ class Page extends React.Component {
 }
 
 Page.getInitialProps = async ({ query }) => {
-  if (query.artist && query.song) {
-    const sentiment = await lyricSentiment(query.artist, query.song)
+  if (query.artist && query.song && query.duration && query.trackId) {
+    const feels = await songSentiment(query.artist, query.song, query.duration, query.trackId)
+    console.log(feels)
   }
   try {
     const { access_token } = await token().then(res => res.json())
