@@ -22,6 +22,7 @@
     "format:source": "prettier --config .prettierrc --write {*.js,pages/**/*.js,components/**/*.js,lib/**/*.js}"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "cheerio": "^1.0.0-rc.2",
     "dotenv": "^4.0.0",
     "isomorphic-unfetch": "^2.0.0",
