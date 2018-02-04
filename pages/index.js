@@ -9,7 +9,7 @@ import SearchBar from '../components/SearchBar'
 import SearchResults from '../components/SearchResults'
 
 import { token, search } from '../lib/api'
-import { debounce } from '../lib/utils'
+import { debounce, lyrics } from '../lib/utils'
 
 const normalizeResult = res =>
   res.tracks.items.map(({ artists, album, name }) => ({
@@ -66,7 +66,10 @@ class Page extends React.Component {
   }
 }
 
-Page.getInitialProps = async () => {
+Page.getInitialProps = async ({ query }) => {
+  if (query) {
+    const text = await lyrics(query.artist, query.song)
+  }
   try {
     const { access_token } = await token().then(res => res.json())
 
