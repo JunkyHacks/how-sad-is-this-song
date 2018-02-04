@@ -13,7 +13,7 @@ const SearchResults = ({ results }) => (
           <small>{result.artist}</small>
         </p>
         <Link
-          href={`/?artist=${result.artist}&song=${result.name}&duration=${results.duration}&trackId=${results.trackId}`}
+          href={`/?artist=${result.artist}&song=${result.name}&duration=${result.duration}&trackId=${result.trackId}`}
         >
           <Button>Go →</Button>
         </Link>
