@@ -68,14 +68,9 @@ class Page extends React.Component {
   }
 }
 
-Page.getInitialProps = async ({ query }) => {
-  if (query.artist && query.song && query.duration && query.trackId) {
-    const feels = await songSentiment(query.artist, query.song, query.duration, query.trackId)
-    console.log(feels)
-  }
+Page.getInitialProps = async () => {
   try {
     const { access_token } = await token().then(res => res.json())
-
     return { token: access_token }
   } catch (e) {
     return e

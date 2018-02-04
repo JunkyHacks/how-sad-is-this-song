@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 
 import Button from './Button'
 
@@ -12,11 +11,7 @@ const SearchResults = ({ results }) => (
           <br />
           <small>{result.artist}</small>
         </p>
-        <Link
-          href={`/?artist=${result.artist}&song=${result.name}&duration=${result.duration}&trackId=${result.trackId}`}
-        >
-          <Button>Go →</Button>
-        </Link>
+        <Button>Go →</Button>
       </li>
     ))}
     <style jsx>{`
