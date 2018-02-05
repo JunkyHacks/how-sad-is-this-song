@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Button = ({ children }) => (
-  <button>
+const Button = ({ children, onClick }) => (
+  <button onClick={onClick}>
     <span className="eff" />
     <span className="label">{children}</span>
     <style jsx>{`

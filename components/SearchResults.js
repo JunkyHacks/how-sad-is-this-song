@@ -2,7 +2,7 @@ import React from 'react'
 
 import Button from './Button'
 
-const SearchResults = ({ results }) => (
+const SearchResults = ({ results, onSelect }) => (
   <ul>
     {results.map(result => (
       <li key={result.trackId}>
@@ -11,7 +11,7 @@ const SearchResults = ({ results }) => (
           <br />
           <small>{result.artist}</small>
         </p>
-        <Button>Go →</Button>
+        <Button onClick={() => onSelect(result)}>Go →</Button>
       </li>
     ))}
     <style jsx>{`
