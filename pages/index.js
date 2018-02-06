@@ -8,7 +8,7 @@ import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
 import SearchResults from '../components/SearchResults'
 
-import { token, search } from '../lib/api'
+import { token, search, songSentiment } from '../lib/api'
 import { debounce } from '../lib/utils'
 
 const normalizeResult = res =>
@@ -23,6 +23,10 @@ const normalizeResult = res =>
 class Page extends React.Component {
   state = {
     results: [],
+  }
+
+  handleSelection = ({ trackId, duration, artist, album, name }) => {
+    songSentiment(artist, name, duration, trackId, this.props.token).then(console.log)
   }
 
   searchTracks = debounce(300, value =>
@@ -45,7 +49,7 @@ class Page extends React.Component {
         <Container>
           <Logo text="How sad is this song?-How sad is this song?-" angle={360} />
           <SearchBar onChange={this.handleSearchChange} />
-          <SearchResults results={this.state.results} />
+          <SearchResults results={this.state.results} onSelect={this.handleSelection} />
         </Container>
         <style jsx global>{`
           * {
