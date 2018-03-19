@@ -8,7 +8,7 @@ import SadnessMeter from '../components/SadnessMeter'
 import SearchBar from '../components/SearchBar'
 import SearchResults from '../components/SearchResults'
 
-import { search } from '../lib/api/client'
+import { search, songSentiment } from '../lib/api/client'
 import { token } from '../lib/api/server'
 import { debounce } from '../lib/utils'
 
@@ -26,8 +26,13 @@ class Page extends React.Component {
     results: [],
   }
 
-  handleSelection = ({ trackId, duration, artist, album, name }) => {
-    songSentiment(artist, name, duration, trackId, this.props.token).then(console.log)
+  handleSelection = ({ artist, name, duration, trackId }) => {
+    songSentiment({
+      artist,
+      name,
+      duration,
+      trackId,
+    }).then(console.log)
   }
 
   searchTracks = debounce(300, value =>

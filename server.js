@@ -17,8 +17,8 @@ app.prepare().then(() => {
 
   router.get('/feels', async ctx => {
     try {
-      const { artist, song, duration, trackId } = ctx.req.query
-      ctx.body = await songSentiment(artist, song, duration, trackId)
+      const { artist, name, duration, trackId } = ctx.query
+      ctx.body = await songSentiment(artist, name, duration, trackId)
     } catch (err) {
       ctx.status = err.status || 500
       ctx.body = 'An error has occurred'
