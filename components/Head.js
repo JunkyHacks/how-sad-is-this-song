@@ -25,7 +25,7 @@ const Head = props => (
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet" />
-    <link rel="stylesheet" href="http://ellekasai.github.io/twemoji-awesome/twemoji-awesome.css" />
+    <link rel="stylesheet" href="https://ellekasai.github.io/twemoji-awesome/twemoji-awesome.css" />
     <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f602.svg" as="image" />
     <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f606.svg" as="image" />
     <link rel="preload" href="https://twemoji.maxcdn.com/2/svg/1f604.svg" as="image" />
