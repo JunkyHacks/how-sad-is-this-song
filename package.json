@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "name": "create-next-example-app",
+  "name": "hsits",
   "jest": {
     "setupFiles": [
       "<rootDir>/shim.js"
